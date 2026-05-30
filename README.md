@@ -92,9 +92,6 @@ https://donate.stripe.com/4gM28jakxeU031f2a5fAc00
 
 You can't? Use my ref link!
 https://t.mercor.com/xR1eM
-
-Want some more? Check out my newest analysis!
-https://mercor-insights.streamlit.app/
 ```
 
 ## Open source note
