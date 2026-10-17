@@ -1,0 +1,11 @@
+{
+  "plugins": [],
+  "profile": {
+    "provider": "json_file",
+    "path": "../examples/candidate.example.json"
+  },
+  "jobs": {
+    "provider": "json_file",
+    "path": "../examples/jobs"
+  }
+}

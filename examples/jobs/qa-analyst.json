@@ -1,0 +1,19 @@
+{
+  "job_id": "qa-analyst",
+  "title": "Quality Assurance Analyst",
+  "company": "Example Company",
+  "description": "Synthetic listing for demonstrating role matching. This is not a live opening.",
+  "required_skills": [
+    "web testing",
+    "bug reporting",
+    "test case execution",
+    "API testing"
+  ],
+  "preferred_skills": [
+    "regression testing",
+    "browser compatibility testing"
+  ],
+  "source": "mocked-example",
+  "url": "",
+  "retrieved_at": "2026-10-17"
+}

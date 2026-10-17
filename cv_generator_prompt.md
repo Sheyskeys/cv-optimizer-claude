@@ -295,6 +295,22 @@ Present the chosen files with `present_files`.
 
 ---
 
+## Role-Specific Resume Tailoring
+
+When a candidate supplies a base resume and a target role, tailor the resume to that posting while treating the supplied resume and user-confirmed details as the source of truth.
+
+- Extract required and preferred qualifications separately, then map each to evidence already present in the candidate's materials.
+- Put the most relevant verified skills and experience first. Use standard role language from the posting where it accurately describes the candidate's existing evidence. Do not keyword-stuff.
+- Keep the document single-column with familiar section headings, plain text contact details, and standard bullets. Avoid tables, graphics, and decorative layouts when ATS readability is the priority.
+- Improve bullets for clarity and concision using an action, scope, and outcome structure when the source supports it. Preserve the meaning, seniority, dates, employers, and metrics. Never invent achievements, tools, credentials, or numbers. Ask for a missing metric when it would strengthen a bullet; otherwise keep the truthful statement without one.
+- Show missing qualifications separately as gaps to review. A gap is not evidence that the candidate lacks the skill.
+- State which job listing was used and when its details were checked if that information is available. Ask the user to verify that the listing is current before applying.
+- Do not describe any match score as an employer's score, probability of selection, or guarantee of employment.
+
+The local `cv_optimizer` package can provide deterministic keyword coverage and an ATS-friendly Markdown draft. Its score is only a transparent heuristic; use the Claude workflow for careful language edits and verify every change against source material.
+
+---
+
 ## CV Generation Instructions
 
 1. Read `/mnt/skills/public/docx/SKILL.md` before writing any code.

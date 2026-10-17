@@ -141,3 +141,17 @@ This project is meant to be reused and adapted.
    - `mercor`
    - `career-tools`
 5. Add a clear disclaimer that Mercor is a referenced platform, not the owner of this repository.
+
+## 10. Use the local matching toolkit (optional)
+
+This repository also includes a local Python workflow. It does not require a Claude API key and does not connect to job platforms. Python 3.9 or newer is required.
+
+From the repository root, validate the core modules and try the synthetic example:
+
+```bash
+python3 -m unittest discover -s tests -v
+python3 -m cv_optimizer rank --config config/providers.example.json
+python3 -m cv_optimizer tailor --config config/providers.example.json --job-id qa-analyst
+```
+
+The example data is fictional. Replace it with verified profile facts and current job listings before using generated drafts. Read `docs/ARCHITECTURE.md` to configure local JSON files or add a provider plugin. Generated files go to `output/` by default.

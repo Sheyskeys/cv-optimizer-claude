@@ -1,0 +1,37 @@
+{
+  "full_name": "Example Candidate",
+  "headline": "Web Quality Analyst",
+  "contact": ["Example City, Country", "candidate@example.test", "https://example.test/portfolio"],
+  "summary": "Synthetic profile for demonstrating the local resume workflow. Replace every field with verified candidate information before using generated drafts.",
+  "skills": [
+    "Web testing",
+    "Bug reporting",
+    "Browser compatibility testing",
+    "Test case execution",
+    "Regression testing"
+  ],
+  "experience": [
+    {
+      "company": "Example Testing Group",
+      "title": "Software Test Contributor",
+      "dates": "2024–2025",
+      "location": "Remote",
+      "bullets": [
+        "Tested web and e-commerce flows across desktop and mobile browsers.",
+        "Documented reproducible defects with steps, expected results, and screen evidence.",
+        "Reviewed checkout and account workflows against supplied test requirements."
+      ]
+    },
+    {
+      "company": "Example Creative Tools Lab",
+      "title": "Workflow Evaluator",
+      "dates": "2023–2024",
+      "location": "Remote",
+      "bullets": [
+        "Evaluated creative application workflows and recorded inconsistent interface behavior.",
+        "Checked analytics features against sample data and documented observed results."
+      ]
+    }
+  ],
+  "education": ["B.Sc., Example Field — Example University"]
+}

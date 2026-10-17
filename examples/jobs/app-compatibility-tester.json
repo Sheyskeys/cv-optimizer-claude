@@ -1,0 +1,17 @@
+{
+  "job_id": "app-compatibility-tester",
+  "title": "App Compatibility Tester",
+  "company": "Example Studio",
+  "description": "Synthetic listing for demonstrating ranking against more than one role. This is not a live opening.",
+  "required_skills": [
+    "web testing",
+    "bug reporting"
+  ],
+  "preferred_skills": [
+    "browser compatibility testing",
+    "regression testing"
+  ],
+  "source": "mocked-example",
+  "url": "",
+  "retrieved_at": "2026-10-17"
+}
