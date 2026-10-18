@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Sequence
 
 from .matching import rank_jobs, score_match
-from .providers import load_providers
+from .providers import ProviderNotImplementedError, load_providers
 from .resume import render_tailored_resume
 
 
@@ -84,6 +84,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Saved resume draft: {resume_path}")
         print(f"Saved match report: {report_path}")
         return 0
-    except (FileNotFoundError, KeyError, ValueError, json.JSONDecodeError) as error:
+    except (
+        FileNotFoundError,
+        KeyError,
+        ValueError,
+        json.JSONDecodeError,
+        ProviderNotImplementedError,
+    ) as error:
         print(f"error: {error}")
         return 2
