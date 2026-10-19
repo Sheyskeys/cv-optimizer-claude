@@ -113,11 +113,21 @@ def _render_shortlist(
     if isinstance(candidate_context, dict):
         location = candidate_context.get("location")
         authorization = candidate_context.get("work_authorization")
+        languages = candidate_context.get("languages")
+        english_proficiency = candidate_context.get("english_proficiency")
+        pay_preference = candidate_context.get("pay_preference")
         if location:
             lines.append(f"Candidate location: {location}")
         if authorization:
             lines.append(f"Work-authorization note: {authorization}")
-        if location or authorization:
+        if languages:
+            language_text = ", ".join(str(item) for item in languages) if isinstance(languages, list) else str(languages)
+            lines.append(f"Languages: {language_text}")
+        if english_proficiency:
+            lines.append(f"English proficiency: {english_proficiency}")
+        if pay_preference:
+            lines.append(f"Pay preference: {pay_preference}")
+        if location or authorization or languages or english_proficiency or pay_preference:
             lines.append("")
     for fit in ("strong", "possible"):
         section = [row for row in rows if row["gig_radar_fit"] == fit]
