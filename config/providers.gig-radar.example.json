@@ -1,0 +1,13 @@
+{
+  "plugins": [],
+  "profile": {
+    "provider": "json_file",
+    "path": "../examples/candidate.example.json"
+  },
+  "jobs": {
+    "provider": "gig_radar_json",
+    "path_env": "GIG_RADAR_DATA_PATH",
+    "statuses": ["open"],
+    "fits": ["strong", "possible"]
+  }
+}

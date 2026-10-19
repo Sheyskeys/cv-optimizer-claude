@@ -40,6 +40,16 @@ provider config
 
 A job directory contains one JSON file per posting. Each job has a stable `job_id`, title, required and preferred terms, and source metadata such as `source`, `url`, and `retrieved_at`. Record when the data was actually retrieved; do not treat an old export as current.
 
+### Gig Radar's local tracker
+
+`config/providers.gig-radar.example.json` reads Gig Radar's existing `seen-listings.json` through the `gig_radar_json` provider. Set `GIG_RADAR_DATA_PATH` to that file's absolute path, then run:
+
+```bash
+python3 -m cv_optimizer shortlist --config config/providers.gig-radar.example.json
+```
+
+The adapter is read-only. By default it includes tracker rows marked open and strong/possible fit, retaining their fit notes, dates, pay, screening details, URLs, and location caveats. The shortlist sorts by fit label, then newest individual status check; rows without an individual check fall below dated rows. Gig Radar's fit labels remain separate from the toolkit's exact-keyword score. Do not use `rank` to compare tracker rows unless their job descriptions and normalized skill terms have been supplied.
+
 ## Add a provider plugin
 
 1. Create an importable Python module that adapts the source response to `CandidateProfile` or `JobPosting`.

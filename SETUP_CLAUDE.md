@@ -155,3 +155,9 @@ python3 -m cv_optimizer tailor --config config/providers.example.json --job-id q
 ```
 
 The example data is fictional. Replace it with verified profile facts and current job listings before using generated drafts. Read `docs/ARCHITECTURE.md` to configure local JSON files or add a provider plugin. Generated files go to `output/` by default.
+
+## 11. Use Gig Radar with the toolkit
+
+The local toolkit can read Gig Radar's existing tracker without connecting to Mercor, Micro1, Alignerr, or other hiring platforms. Set `GIG_RADAR_DATA_PATH` to Gig Radar's `seen-listings.json`, then run the `shortlist` command shown in the README. Share the generated shortlist with the Claude Project only when you want Claude to help prioritize or tailor a role.
+
+Treat tracker fit labels as initial screening notes. Confirm the live listing, location rules, account eligibility, and application requirements before applying. A candidate's work authorization does not override a project's country restrictions. Never convert a tracker fit label into a keyword score or claim experience that is not supported by the candidate's resume.

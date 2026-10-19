@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .base import JobProvider, ProfileProvider
+from .gig_radar import GigRadarJsonJobProvider
 from .json_file import JsonFileJobProvider, JsonFileProfileProvider
 from .stubs import StubJobProvider, StubProfileProvider
 
@@ -53,9 +54,40 @@ def _stub_job_factory(spec: dict[str, Any], base_dir: Path) -> JobProvider:
     return StubJobProvider(spec, base_dir)
 
 
+def _gig_radar_job_factory(spec: dict[str, Any], base_dir: Path) -> JobProvider:
+    env_name = spec.get("path_env")
+    if env_name is not None:
+        if not isinstance(env_name, str) or not env_name.strip():
+            raise ValueError("gig_radar_json path_env must be a non-empty environment variable name")
+        import os
+
+        path_value = os.environ.get(env_name)
+        if not path_value:
+            raise ValueError(f"Set {env_name} to Gig Radar's seen-listings.json path")
+        path = Path(path_value).expanduser().resolve()
+    else:
+        path = _resolved_path(spec, base_dir)
+
+    def string_option(name: str) -> list[str] | None:
+        value = spec.get(name)
+        if value is None:
+            return None
+        if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+            raise ValueError(f"gig_radar_json {name} must be a list of strings")
+        return value
+
+    return GigRadarJsonJobProvider(
+        path,
+        statuses=string_option("statuses"),
+        fits=string_option("fits"),
+        platforms=string_option("platforms"),
+    )
+
+
 register_profile_provider("json_file", _json_profile_factory)
 register_profile_provider("stub", _stub_profile_factory)
 register_job_provider("json_file", _json_job_factory)
+register_job_provider("gig_radar_json", _gig_radar_job_factory)
 register_job_provider("stub", _stub_job_factory)
 
 

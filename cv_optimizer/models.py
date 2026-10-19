@@ -83,6 +83,14 @@ class JobPosting:
     source: str = "local-json"
     url: str = ""
     retrieved_at: str = ""
+    tracking_status: str = ""
+    tracking_fit: str = ""
+    tracking_fit_note: str = ""
+    location_limits: str = ""
+    pay: str = ""
+    screening: str = ""
+    date_first_seen: str = ""
+    last_status_check: str = ""
 
     @classmethod
     def from_dict(cls, data: Mapping[str, Any]) -> "JobPosting":
@@ -100,4 +108,12 @@ class JobPosting:
             source=_text(data.get("source")) or "local-json",
             url=_text(data.get("url")),
             retrieved_at=_text(data.get("retrieved_at")),
+            tracking_status=_text(data.get("tracking_status")) or _text(data.get("status")),
+            tracking_fit=_text(data.get("tracking_fit")) or _text(data.get("fit")),
+            tracking_fit_note=_text(data.get("tracking_fit_note")) or _text(data.get("fit_note")),
+            location_limits=_text(data.get("location_limits")),
+            pay=_text(data.get("pay")),
+            screening=_text(data.get("screening")),
+            date_first_seen=_text(data.get("date_first_seen")),
+            last_status_check=_text(data.get("last_status_check")),
         )

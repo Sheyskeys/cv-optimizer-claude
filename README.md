@@ -6,6 +6,7 @@ A local-first toolkit for tailoring a resume to a specific role, comparing a can
 
 - `cv_optimizer/`: small Python package for profile/job records, transparent keyword matching, resume rendering, provider loading, and CLI commands
 - `config/providers.example.json`: example local provider setup
+- `config/providers.gig-radar.example.json`: read-only import from Gig Radar's local tracker
 - `examples/`: clearly synthetic profile and job data for trying the flow
 - `tests/`: standard-library tests for core behavior
 - `cv_generator_prompt.md`: Claude Project instructions for collecting and tailoring candidate information
@@ -28,6 +29,15 @@ python3 -m cv_optimizer tailor --config config/providers.example.json --job-id q
 The examples are synthetic. Replace them with verified candidate and job data before using the output. Commands write generated files under `output/` by default; that directory is ignored by Git.
 
 `rank` writes `output/role-ranking.json` and prints roles in descending keyword coverage. `tailor` writes a single-column Markdown resume draft and a JSON match report. Add `--output-dir PATH` to choose another output directory.
+
+To sort Gig Radar's open strong/possible roles, point the example provider at its tracker and run:
+
+```bash
+export GIG_RADAR_DATA_PATH="/path/to/gig-radar/seen-listings.json"
+python3 -m cv_optimizer shortlist --config config/providers.gig-radar.example.json
+```
+
+`shortlist` writes Markdown and JSON files under `output/`, sorts stronger matches first and newer individual status checks before older or undated checks, and preserves Gig Radar's notes and location caveats. This import is read-only and does not contact hiring platforms. Use `shortlist` for tracker data: listings may not contain normalized skill requirements for meaningful keyword scoring, and platform eligibility still needs confirmation from the live listing/account.
 
 ## How matching works
 
